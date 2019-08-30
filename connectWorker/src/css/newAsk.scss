@@ -1,0 +1,100 @@
+@import "./common.scss";
+@import "./dropload.scss";
+body{
+    background-color:rgb(236,239,245);
+    overflow-x: hidden;
+}
+
+.conn-history-head{
+    position: relative;
+    box-sizing: border-box;
+    padding:80px 95px 137px;
+    background-color:#fff;
+    overflow: hidden;
+    .conn-head-logo{
+        display: block;
+        width:480px;
+        height: 203px;
+        margin:0 auto;
+    }
+    .conn-phone-num{
+        display: block;
+        font-size: 26px;
+        line-height:1.2;
+        letter-spacing: 3px;
+        color: #333232;
+        text-align: center;
+        margin:70px 0 25px;
+    }
+    .new-consu-btn{
+        width: 100%;
+        background-color: #a50303;
+        border-radius: 8px;
+        font-size: 30px;
+        line-height: 80px;
+        letter-spacing: -3px;
+        color: #ffffff;
+        user-select: none;
+    }
+    .title{
+        position: absolute;
+        left:41px;
+        bottom:16px;
+        font-size: 26px;
+        line-height: 1.2;
+        color: #999796;
+    }
+}
+
+.conn-history-list{
+    background-color:#fff;
+    > .history-list-one + .history-list-one{
+        border-top: 1px solid #e5e5e5;
+    }
+}
+.history-list-one{
+    display: block;
+    box-sizing: border-box;
+    padding:34px 30px 33px 40px;
+    .list-one-wrap{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .history-one-left{
+        flex: 1;
+        width:100%;
+        overflow: hidden;
+    }
+    .title{
+        font-size: 30px;
+        line-height:1.2;
+        color: #333232;
+        margin-bottom: 23px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .history-time{
+        white-space:pre;
+        font-size: 24px;
+        line-height: 1.2;
+        color: #999796;
+    }
+    .history-info-wrap{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        .history-info-logo{
+            width: 30px;
+	        height: 27px;
+        }
+        .history-info-num{
+            font-size: 24px;
+            line-height: 1.2;
+            color: #999796;
+        }
+    }
+}

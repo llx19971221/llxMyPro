@@ -1,0 +1,111 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="full-screen" content="yes">
+        <meta name="x5-fullscreen" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+        <title>联系商家</title>
+        <link rel="stylesheet" href="../css/newAsk.css">
+        <script>
+            !function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);
+            flex(100, 1);
+        </script>
+    </head>
+    <body>
+        <header class="conn-history-head">
+            <img src="../images/2.png" alt="24小时为您服务" class="conn-head-logo"/>
+            <sub class="conn-phone-num">
+                服务热线:021-5458351
+            </sub>
+            <button  id="new-consu-btn" class="new-consu-btn">创建新咨询</button>
+            <h3 class="title">咨询历史</h3>
+        </header>
+        <main class="conn-history-main">
+           <div class="conn-history-list">
+               <a href="./consulation.html?consuId=1&historyId=1&info=0" class="history-list-one">
+                   <div class="list-one-wrap">
+                        <div class="history-one-left">
+                            <h3 class="title">这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢</h3>
+                            <time class="history-time">2019-02-31   12：56</time>
+                        </div>
+                        <div class="history-info-wrap">
+                                <img src="../images/4.png" alt="msgLogo" class="history-info-logo"/>
+                                <i class="history-info-num">99+</i>
+                        </div>
+                    </div>
+                </a>
+                <a href="./consulation.html?consuId=1&historyId=1&info=0" class="history-list-one">
+                   <div class="list-one-wrap">
+                        <div class="history-one-left">
+                            <h3 class="title">这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢</h3>
+                            <time class="history-time">2019-02-31   12：56</time>
+                        </div>
+                        <div class="history-info-wrap">
+                                <img src="../images/4.png" alt="msgLogo" class="history-info-logo"/>
+                                <i class="history-info-num">99+</i>
+                        </div>
+                    </div>
+                </a>
+                <a href="./consulation.html?consuId=1&historyId=1&info=0" class="history-list-one">
+                   <div class="list-one-wrap">
+                        <div class="history-one-left">
+                            <h3 class="title">这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢</h3>
+                            <time class="history-time">2019-02-31   12：56</time>
+                        </div>
+                        <div class="history-info-wrap">
+                                <img src="../images/4.png" alt="msgLogo" class="history-info-logo"/>
+                                <i class="history-info-num">99+</i>
+                        </div>
+                    </div>
+                </a>
+                <a href="./consulation.html?consuId=1&historyId=1&info=0" class="history-list-one">
+                   <div class="list-one-wrap">
+                        <div class="history-one-left">
+                            <h3 class="title">这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢这个地方怎么没有了呢</h3>
+                            <time class="history-time">2019-02-31   12：56</time>
+                        </div>
+                        <div class="history-info-wrap">
+                                <img src="../images/4.png" alt="msgLogo" class="history-info-logo"/>
+                                <i class="history-info-num">99+</i>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+        </main>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/dropload.min.js"></script>
+        <script>
+
+            var cishu=0;
+            $('.conn-history-main').dropload({
+                scrollArea:window,
+                autoLoad:false,
+                loadDownFn:function(me){
+                    if(cishu==0){
+                        setTimeout(function(){
+                            for(var i=0;i<4;i++){
+                                $(".conn-history-list").append($(".history-list-one").eq(0).clone(true));
+                            }
+                            me.resetload();
+                            cishu++;
+                        }, 1500);
+                        
+                    }else{  
+                        setTimeout(function(){
+                            me.noData(true);
+                            me.resetload();
+                        }, 1500);
+                       
+                    }
+                    
+                }
+            });
+            $("#new-consu-btn").click(function(){
+                historyId=Math.floor(Math.random()*500+500);
+                consuId=Math.floor(Math.random()*500+500);
+                window.location.href="./consulation.html?consuId="+consuId+"&historyId="+historyId+"&info=1";
+            })
+        </script>
+    </body>
+</html>

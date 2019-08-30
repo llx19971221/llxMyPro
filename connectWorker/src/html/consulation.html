@@ -1,0 +1,103 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="full-screen" content="yes">
+        <meta name="x5-fullscreen" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+        <title>联系商家</title>
+        <link rel="stylesheet" href="../css/consulation.css"/>
+        <script>
+            !function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);
+            flex(100, 1);
+        </script>
+    </head>
+    <body>
+
+        <div class="consul-msg-wrap">
+            <div class="consul-service-info">
+                <div class="service-logo-box">
+                    <img src="../images/1.png" alt="" class="service-logo">
+                </div>
+                <div class="service-info-box">
+                    <p class="service-info">您好您好您好您好dddddddddddddddddddddd</p>
+                    <time class="time">2018年09月08日 19：45</time>
+                </div>
+            </div>
+            <div class="consul-user-info">
+                <div class="user-info-box">
+                    <p class="user-info">您好您好您好您好dddddddddddddddddddddd</p>
+                    <time class="time">2018年09月08日 19：45</time>
+                </div>
+                <div class="user-logo-box">
+                    <img src="../images/user.jpg" alt="" class="user-logo">
+                </div>
+            </div>
+        </div>
+        <div class="user-input-box">
+            <div class="photo-logo-box">
+                <img src="../images/3.png" alt="" class="photo-logo"/>
+            </div>
+            <div class="user-moni-input">
+                <textarea id="input-textArea" class="input-hidden" placeholder="请输入您要询问的问题" type="text" value=""></textarea>
+                <pre class="user-input" id="user-input">请输入您要询问的问题</pre>
+            </div>
+            <label class="user-send-btn" id="send" for="input-textArea">发送</label>
+        </div>
+        <script src="../js/jquery-1.8.3.min.js"></script>
+        <script>
+            // $(".consul-msg-wrap").scrollTop($(".consul-msg-wrap")[0].scrollHeight);
+
+            //输入框
+            $(window).resize(function(){
+                $(".consul-msg-wrap").scrollTop($(".consul-msg-wrap")[0].scrollHeight);
+            })
+            $(".input-hidden").focus(function(){
+                $("#user-input").html($(this).val());
+            }).blur(function(e){
+                if(e.relatedTarget!=null){
+                    setTimeout(() => {
+                        $(this).focus();
+                    }, 12); 
+                }else{
+                    $("#user-input").html($(this).val()?$(this).val():$(this).attr("placeholder"));
+                }
+            }).on("input",function(){
+                $(".user-input").scrollTop($(".user-input")[0].scrollHeight).html($(this).val());//滚动条始终处于最下方
+                
+            });
+
+            $("#send").click(function(){
+                var getVal=$(".input-hidden").val();
+                if(!getVal)return;
+                var nowDate=getNowDate();
+                var newUserDom=$(".consul-user-info").eq(0).clone(true);
+                newUserDom.find(".user-info-box").find(".user-info").html(getVal).parent().find(".time").html(nowDate);
+                var newServiceDom=$(".consul-service-info").eq(0).clone(true);
+                newServiceDom.find(".service-info-box").find(".service-info").html("抱歉，我无法解决您的问题").parent().find(".time").html(nowDate);
+                $(".consul-msg-wrap").append(newUserDom);
+                $(".consul-msg-wrap").scrollTop($(".consul-msg-wrap")[0].scrollHeight);
+                setTimeout(function(){
+                    $(".consul-msg-wrap").append(newServiceDom);
+                    $(".consul-msg-wrap").scrollTop($(".consul-msg-wrap")[0].scrollHeight);
+                },1500)
+                $("#user-input").html($(".input-hidden").val("").attr("placeholder"));
+            })
+
+            //得到时间
+            function getNowDate(){
+                function formatDate(n){
+                    return n>9?n:0+""+n;
+                }
+                var date=new Date();
+                var year=date.getFullYear();
+                var month=formatDate(date.getMonth()+1);
+                var day=formatDate(date.getDate());
+                var hour=formatDate(date.getHours());
+                var minutes=formatDate(date.getMinutes());
+                return year+"年"+month+"月"+day+"日"+" "+hour+"："+minutes;
+                
+            }
+        </script>
+    </body>
+</html>
