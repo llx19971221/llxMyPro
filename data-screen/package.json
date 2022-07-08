@@ -15,7 +15,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.12.0",
     "react-app-rewired": "^2.1.5",
     "react-daterange-picker": "2.0.0",
